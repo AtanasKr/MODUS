@@ -1,0 +1,186 @@
+ul{
+    text-align: center;
+}
+
+li{
+    display: inline;
+    padding: 1em;
+}
+
+a{
+    text-decoration: none;
+}
+
+.logo{
+    width: 21em;
+    height: 4.5em;
+}
+.navbar-container {
+	text-align: center;
+	padding: 15px;
+	font-size: 0;
+}
+
+.navbar-container ul {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	display: inline-block;
+}
+
+.navbar-container ul li {
+	display: inline-block;
+	font-size: 16px;
+}
+
+.navbar-container ul li a {
+	color: black;
+	text-decoration: none;
+	display: inline-block;	
+	padding: 15px;
+    font-size: 1.4em;
+	transition: color 0.5s;
+}
+
+.navbar-container ul li .underline {
+	height: 3px;
+	background-color: transparent;
+	width: 0%;
+	transition: width 0.2s, background-color 0.5s;
+	margin: 0 auto;
+}
+
+.navbar-container ul li.active-link .underline {
+	width: 100%;
+	background-color: black;
+}
+
+.navbar-container ul li:hover .underline {
+	background-color: #9E0000;
+	width: 100%;
+}
+
+.navbar-container ul li:active .underline {
+	transition: none;
+	background-color: black;
+}
+
+.navbar-container .logo {
+    position: absolute;
+    left: 3em;
+    font-size: 16px;
+    margin: 1em;
+    margin-top: 1em;
+}
+
+.navbar-container .login {
+    position: absolute;
+    right: 18em;
+    top: 4.5em;
+    font-size: 10px;
+    width: 4em;
+    height: 4em;
+}
+
+.navbar-container .cart {
+    position: absolute;
+    right: 10em;
+    top: 4.5em;
+    font-size: 10px;
+    width: 4em;
+    height: 4em;
+}
+
+@media only screen and (max-width: 1400px) {
+	.logo{
+		width: 17em;
+		height: 3.5em;
+	}
+  }
+
+  @media only screen and (max-width: 1280px) {
+	.logo{
+		width: 10em;
+		height: 2.3em;
+	}
+
+	.navbar-container .logo {
+		left: 3em;
+		font-size: 16px;
+		margin: 1em;
+		margin-top: 2em;
+	}
+  }
+
+  @media only screen and (max-width: 1100px) {
+	.navbar-container .login {
+		right: 14em;
+	}
+	
+	.navbar-container .cart {
+		right: 7em;
+	}
+
+	.logo{
+		display: none;
+	}
+
+	.navbar-container ul li {
+		font-size: 13px;
+	}
+	.navbar-container {
+		text-align: left;
+		padding: 15px;
+		font-size: 0;
+	}
+  }
+
+  @media only screen and (max-width: 860px) {
+	.navbar-container .login {
+		margin-top: 5em;
+		right: 14em;
+	}
+	
+	.navbar-container .cart {
+		margin-top: 5em;
+		right: 7em;
+	}
+
+	.logo{
+		display: none;
+	}
+
+	.navbar-container ul li {
+		font-size: 13px;
+	}
+	.navbar-container {
+		text-align: left;
+		padding: 15px;
+		font-size: 0;
+	}
+  }
+
+  @media only screen and (max-width: 860px) {
+	.navbar-container .login {
+		margin-top: 5em;
+		right: 25em;
+	}
+	
+	.navbar-container .cart {
+		margin-top: 5em;
+		right: 20em;
+	}
+
+	.logo{
+		display: none;
+	}
+
+	.navbar-container ul li {
+		font-size: 13px;
+	}
+	.navbar-container {
+		text-align: left;
+		padding: 15px;
+		font-size: 0;
+	}
+  }

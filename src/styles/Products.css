@@ -1,0 +1,22 @@
+hr{
+    margin-right: 60%;
+    background-color: #9E0000;
+    height: 0.1em;
+    border-radius: 1em;
+}
+
+.img-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-bottom: 3em;
+}
+.container-item{
+    margin-top: 2em;
+    width: 15em;
+    height: 15em;
+    margin-left: 3em;
+}
+
+.container-item:hover{
+    opacity: 0.5;
+}

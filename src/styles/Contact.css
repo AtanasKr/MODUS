@@ -1,0 +1,54 @@
+h1{
+    text-align: left;
+    margin-top: 1em;
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+#holder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#Name-input{
+    margin-top: 2em;
+    width: 30em;
+    height: 3em;
+    border-radius: 0.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+#Email-input{
+    margin-top: 1.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 30em;
+    height: 3em;
+    border-radius: 0.7em;
+}
+
+#Message-input{
+    margin-top: 1.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 5em;
+    width: 30em;
+    height: 3em;
+    border-radius: 0.7em;
+}
+
+.Send-btn{
+    margin-top: 1em;
+    width: 13em;
+    height: 3em;
+    border-radius: 0.6em;
+    background-color: #C9FF9E;
+}
+
+.Send-btn:hover{
+    background-color: #e3ffcd;
+}
