@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles/Account.css'
-import {NavLink} from "react-router-dom"
 
-function Login(){
+function Register(){
     return(
         <div>
             <h1 id="Enter-text">Регистрация</h1>
@@ -16,4 +15,4 @@ function Login(){
     )
 }
 
-export default Login
+export default Register
