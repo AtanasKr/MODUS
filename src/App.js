@@ -3,10 +3,11 @@ import Home from './Home';
 import Contact from './Contact';
 import About from './About';
 import Products from './Products';
-import {Route, Link, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import NavBar from './NavBar';
-import Account from './Account'
+import Login from './Login'
 import Cart from './Cart'
+import Register from './Register'
 import './styles/NavBar.css'
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
       <Route path="/about" element = {<About/>}/>
       <Route path="/contact" element = {<Contact/>}/>
       <Route path="/products" element = {<Products/>}/>
-      <Route path="/account" element = {<Account/>}/>
+      <Route path="/login" element = {<Login/>}/>
       <Route path="/cart" element = {<Cart/>}/>
+      <Route path="/register" element = {<Register/>}/>
       </Routes>
     </div>
   );

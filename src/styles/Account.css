@@ -1,0 +1,41 @@
+#Enter-text{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Login-btn{
+    margin-top: 1em;
+    width: 13em;
+    height: 3em;
+    border-radius: 0.6em;
+    background-color: #EFEFEF;
+}
+
+.Login-btn:hover{
+    background-color: #ffffff;
+}
+
+#Password-input{
+    margin-top: 1.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 20em;
+    height: 3em;
+    border-radius: 0.7em;
+}
+
+#EmailLogin-input{
+    margin-top: 1.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 20em;
+    height: 3em;
+    border-radius: 0.7em;
+}
+
+#reg-text{
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}

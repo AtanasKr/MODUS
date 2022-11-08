@@ -19,7 +19,7 @@ function NavBar(){
                 <li className="nav-link"><NavLink style={navLinkStyles} to = "/contact">Контакти<div className="underline"></div></NavLink></li>
                 <li className="nav-link"><NavLink style={navLinkStyles} to = "/about">За нас<div className="underline"></div></NavLink></li>
             </ul>
-            <NavLink style={navLinkStyles} to = "/account"><img className="login" src={loginPath}/></NavLink>
+            <NavLink style={navLinkStyles} to = "/login"><img className="login" src={loginPath}/></NavLink>
             <NavLink style={navLinkStyles} to = "/cart"><img className="cart" src={cartPath}/></NavLink>
             </div>
     )
