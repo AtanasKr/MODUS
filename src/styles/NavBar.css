@@ -91,6 +91,17 @@ a{
     height: 4em;
 }
 
+.navbar-container .name-holder {
+    position: absolute;
+    right: 10em;
+    top: 0.35em;
+    font-size: 20px;
+    width: 15em;
+    height: 15em;
+}
+
+
+
 @media only screen and (max-width: 1400px) {
 	.logo{
 		width: 17em;

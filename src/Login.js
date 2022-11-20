@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-
+localStorage.setItem("Logged",false);
 
 function Login(){
     return(
@@ -46,11 +46,12 @@ function handleLogin(){
         // Signed in 
         user = userCredential.user;
         let data;
-        //window.location = 'panelTeacher.html';
-        const roleRef = ref(databaseHolder, 'users/' + user.uid + '/role');
+        const roleRef = ref(databaseHolder, 'users/' + user.uid + '/name');
         onValue(roleRef, (snapshot) => {
           data = snapshot.val();
-          console.log("here")
+          localStorage.setItem("Name",data);
+          localStorage.setItem("Logged",true);
+          window.location = '/';
         //   if(data === "Teacher"){
         //     window.location = 'panelTeacher.html';
         //   }else{

@@ -18,9 +18,13 @@ function Home(){
                 <a href='www.google.com'><img src={chairHomePath}/></a>
             </div>
             <img  className = 'lineToButton' src={lineToButtonPath}/>
-            <button className="productsButton">Към продукти</button>
+            <button className="productsButton" onClick={moveTopProducts}>Към продукти</button>
         </div>
     )
+}
+
+function moveTopProducts(){
+    window.location='products'
 }
 
 export default Home
