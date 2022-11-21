@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-localStorage.setItem("Logged",false);
 
 function Login(){
     return(
@@ -33,8 +32,8 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase
-const getApp = initializeApp(firebaseConfig);
-const databaseHolder = getDatabase(getApp);
+const app = initializeApp(firebaseConfig);
+const databaseHolder = getDatabase(app);
 const authHolder = getAuth();
 let user;
 

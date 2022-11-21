@@ -16,7 +16,6 @@ if(localStorage.getItem("Logged")==='false'){
 }else{
     logged = true;
 }
-debugger;
 console.log(logged)
 function NavBar(){
     return(
@@ -30,7 +29,7 @@ function NavBar(){
             </ul>
             {!logged&&<NavLink style={navLinkStyles} to = "/login"><img className="login" src={loginPath}/></NavLink>}
             {logged&&<p className="name-holder">Добре дошли {localStorage.getItem("Name")}</p>}
-            {logged&&<img className="login" src={logoutPath} onClick={loggOff}/>}
+            {logged&&<img className="login" src={logoutPath} onClick={()=>loggOff()}/>}
             <NavLink style={navLinkStyles} to = "/cart"><img className="cart" src={cartPath}/></NavLink>
             </div>
     )

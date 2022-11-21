@@ -11,8 +11,13 @@ if(localStorage.getItem("Logged")==='false'){
 function Contact(){
     return(
         <div>
-            {logged&&<h1>Cart page.</h1>}
-            {!logged&&<h1>Please login to use this page</h1>}
+            {!logged&&<h1>Моля влезте за да ползвате страницата</h1>}
+            {logged&&<h1 className='cart-holder'>Количката на {localStorage.getItem("Name")}</h1>}
+            {logged&&<h1 className='balance-holder'>Баланс по сметка:2000лв</h1>}
+            {logged&&<h1 className='balance-holder'>Стойност на стока:0лв</h1>}
+            {logged&&<h1 id='Chair-header'>Продукти</h1>}
+            {logged&&<hr></hr>}
+            {logged&&<button className="Send-btn">Приключи поръчка</button>}
         </div>
     )
 }

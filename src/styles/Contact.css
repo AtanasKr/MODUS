@@ -52,3 +52,7 @@ h1{
 .Send-btn:hover{
     background-color: #e3ffcd;
 }
+
+.balance-holder{
+    font-size: 1.5rem;
+}

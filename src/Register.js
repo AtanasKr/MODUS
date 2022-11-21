@@ -39,7 +39,6 @@ function handleRegister(){
     let email = document.getElementById('EmailLogin-input').value;
     let password = document.getElementById('Password-input').value;
     const auth = getAuth();
-    console.log(email);
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
    // Signed in 
@@ -47,7 +46,8 @@ function handleRegister(){
 
     set(ref(database, 'users/' + user.uid),{
         name: name,
-        email: email
+        email: email,
+        balance: 2000
     });
 
     alert('User created! You can now log in!');
