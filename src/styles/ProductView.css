@@ -1,0 +1,23 @@
+.column {
+    float: left;
+    width: 50%;
+    height: 300px; /* Should be removed. Only for demonstration */
+    padding-top: 1em;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .show-container-item{
+    padding-left: 5em;
+    width: 75%;
+
+  }
+
+  .prod-Inf{
+    padding-top: 2em;
+  }

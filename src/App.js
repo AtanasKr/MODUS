@@ -9,6 +9,7 @@ import Login from './Login'
 import Cart from './Cart'
 import Register from './Register'
 import './styles/NavBar.css'
+import ProductView from './ProductView';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/login" element = {<Login/>}/>
       <Route path="/cart" element = {<Cart/>}/>
       <Route path="/register" element = {<Register/>}/>
+      <Route path="/ProductView" element = {<ProductView/>}/>
       </Routes>
     </div>
   );

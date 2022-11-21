@@ -15,7 +15,7 @@ function Home(){
             налага да жертвате стилния му облик.</p>
             </div>
             <div className='right'>
-                <a href='www.google.com'><img src={chairHomePath}/></a>
+                <img src={chairHomePath}/>
             </div>
             <img  className = 'lineToButton' src={lineToButtonPath}/>
             <button className="productsButton" onClick={moveTopProducts}>Към продукти</button>
