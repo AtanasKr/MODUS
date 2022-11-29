@@ -56,3 +56,30 @@ h1{
 .balance-holder{
     font-size: 1.5rem;
 }
+#all-products{
+
+}
+#all-products li{
+    display: table;
+    width: 80%;
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 25px;
+}
+
+#all-products p{
+    font-size:0.8em;
+    display: table-cell;
+    text-align: left;
+}
+
+#all-products #product-holder2{
+    text-align: center;
+}
+
+#all-products #product-holder3{
+    font-size: 1em;
+    text-align: right;
+}
+

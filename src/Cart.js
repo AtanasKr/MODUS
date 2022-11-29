@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Contact.css'
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+import { getDatabase, ref, onValue, remove} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 import { getAuth} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -18,34 +18,58 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
+let userUid;
 
-let counter= 1;
+auth.onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      //getting user ref in order to reach user data in database
+      userUid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      console.log("The user is signed off!");
+    }
+  });
 
-// function clearList(){
-//     let completelist= document.getElementById("pendingList");
-//     counter = 1;
-//     completelist.innerHTML = "";
-// }
-
+let allProducts = [];
+let finalPrice = 0;
 function addElementToList(id,name,price){
-    let completelist= document.getElementById("pendingList");
-    
-    completelist.innerHTML += "<li><input type='text' disabled style='display:none' value='"+name+"' id='"+counter+"fnum'><input type='text' disabled style='display:none' value='"+name+"' id='"+counter+"name'><input type='text' disabled style='display:none' value='"+id+"' id='"+counter+"id'><input type='text' disabled style='display:none' value='"+name+"' id='"+counter+"from'><input type='text' disabled style='display:none' value='"+name+"' id='"+counter+"'>" + "<button onclick='goToFunc("+counter+")'> <span class='tooltiptext' id='myTooltip'>Решаване на проучване "+counter+"</span></button></li><br>";
-    counter++;
+    let productHolder ={};
+    productHolder.id = id;
+    productHolder.name = name;
+    productHolder.price = price;
+    allProducts.push(productHolder);
+    finalPrice = finalPrice+parseInt(price);
+    debugger;
+}
+
+function deleteElement(id){
+  const refToDelete = ref(database,'productHolder/'+userUid+"-product/"+id);
+  const allSurveys = ref(database,"productHolder/"+userUid+"-product");
+  onValue(allSurveys, (snapshot) => {
+      const data = snapshot;
+      data.forEach(function(childSnapshot){
+        debugger;
+        if(id===childSnapshot.val().id){
+          remove(refToDelete);
+          window.location = '/products';
+          alert("Продукта беше премахнат")
+        }
+      });
+  });
 }
 
 auth.onAuthStateChanged((user) => {
-    debugger;
     if (user) {
       // User is signed in, see docs for a list of available properties
       //getting user ref in order to reach user data in database
       const userRef = ref(database, 'productHolder/' + user.uid + "-product");
       onValue(userRef, (snapshot) => {
           const data = snapshot;
-          //clearList();
+          allProducts=[];
           data.forEach(function(childSnapshot){
             addElementToList(childSnapshot.val().id,childSnapshot.val().name,childSnapshot.val().price);
-            debugger;
           });
       });
       // ...
@@ -68,12 +92,19 @@ function Contact(){
             {!logged&&<h1>Моля влезте за да ползвате страницата</h1>}
             {logged&&<h1 className='cart-holder'>Количката на {localStorage.getItem("Name")}</h1>}
             {logged&&<h1 className='balance-holder'>Баланс по сметка:2000лв</h1>}
-            {logged&&<h1 className='balance-holder'>Стойност на стока:0лв</h1>}
+            {logged&&<h1 className='balance-holder'>Стойност на стока:{finalPrice}лв</h1>}
             {logged&&<h1 id='Chair-header'>Продукти</h1>}
             {logged&&<hr></hr>}
+            {logged&&<ul id='all-products'>
+            {allProducts.map((data) => (
+            <li key={data.id} onClick={()=>deleteElement(data.id)}>
+              <p id='product-holder'>Ид на продукта:{data.id}</p> 
+              <p id='product-holder2'>Име: {data.name}</p>
+              <p id='product-holder3'>Цена: {data.price}</p>
+            </li>
+            ))}
+            </ul>}
             {logged&&<button className="Send-btn">Приключи поръчка</button>}
-            <ul id="pendingList">
-            </ul>
         </div>
     )
 }
