@@ -10,6 +10,7 @@ import Cart from './Cart'
 import Register from './Register'
 import './styles/NavBar.css'
 import ProductView from './ProductView';
+import HistoryView from './HistoryView';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/cart" element = {<Cart/>}/>
       <Route path="/register" element = {<Register/>}/>
       <Route path="/ProductView" element = {<ProductView/>}/>
+      <Route path="/HistoryView" element = {<HistoryView/>}/>
       </Routes>
     </div>
   );

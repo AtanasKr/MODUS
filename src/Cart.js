@@ -1,8 +1,9 @@
 import React from 'react';
 import './styles/Contact.css'
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getDatabase, ref, onValue, remove, update} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+import { getDatabase, ref, onValue, remove, update, push} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 import { getAuth} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import {NavLink} from "react-router-dom"
 
 const firebaseConfig = {
     apiKey: "AIzaSyDsfPr2HvfXQa7f5UP0wVE5Ctx7zzHspJg",
@@ -34,8 +35,7 @@ auth.onAuthStateChanged((user) => {
 
 let allProducts = [];
 let finalPrice = 0;
-let balance = 0;
-const updates = {};
+const updateHistory = {};
 function addElementToList(id,name,price){
     let productHolder ={};
     productHolder.id = id;
@@ -43,7 +43,6 @@ function addElementToList(id,name,price){
     productHolder.price = price;
     allProducts.push(productHolder);
     finalPrice = finalPrice+parseInt(price);
-    debugger;
 }
 
 function deleteElement(id){
@@ -64,16 +63,19 @@ function deleteElement(id){
 function finishTransaction(){
   if(finalPrice===0){
     alert("Количката е празна!")
-  }else if(balance>=finalPrice){
-    balance = balance - finalPrice;
-    alert("Транзакцията е успешна!");
-    updates['users/' + userUid + "/balance"] = balance;
-    const allProducts = ref(database,"productHolder/"+userUid+"-product");
-    remove(allProducts);
-    update(ref(database), updates);
-    window.location = '/products';
   }else{
-    alert("Не достатъчен баланс!");
+    alert("Транзакцията е успешна!");
+    const allProducts = ref(database,"productHolder/"+userUid+"-product");
+    const historyRef = ref(database,'history/'+userUid +"-logged")
+    const newPostKey = push(historyRef).key;
+    updateHistory['history/'+userUid +"-logged/"+newPostKey] = {
+      date:new Date(),
+      price:finalPrice
+    };
+    console.log(allProducts);
+    remove(allProducts);
+    update(ref(database),updateHistory)
+    window.location = '/products';
   }
 };
 
@@ -88,11 +90,6 @@ auth.onAuthStateChanged((user) => {
           data.forEach(function(childSnapshot){
             addElementToList(childSnapshot.val().id,childSnapshot.val().name,childSnapshot.val().price);
           });
-      });
-      const userRef = ref(database, 'users/' + user.uid);
-      onValue(userRef, (snapshot) => {
-          balance = snapshot.val().balance;
-          console.log(balance);
       });
       // ...
     } else {
@@ -113,16 +110,17 @@ function Contact(){
         <div>
             {!logged&&<h1>Моля влезте за да ползвате страницата</h1>}
             {logged&&<h1 className='cart-holder'>Количката на {localStorage.getItem("Name")}</h1>}
-            {logged&&<h1 className='balance-holder'>Баланс по сметка:{balance}лв</h1>}
             {logged&&<h1 className='balance-holder'>Стойност на стока:{finalPrice}лв</h1>}
+            {logged&&<NavLink end to = "/HistoryView"><button className="History-btn">История на покупки</button></NavLink>}
             {logged&&<h1 id='Chair-header'>Продукти</h1>}
             {logged&&<hr></hr>}
             {logged&&<ul id='all-products'>
             {allProducts.map((data) => (
-            <li key={data.id} onClick={()=>deleteElement(data.id)}>
+            <li key={data.id}>
               <p id='product-holder'>Ид на продукта:{data.id}</p> 
               <p id='product-holder2'>Име: {data.name}</p>
               <p id='product-holder3'>Цена: {data.price} лв</p>
+              <p id='product-cancel'onClick={()=>deleteElement(data.id)}>X</p>
             </li>
             ))}
             </ul>}

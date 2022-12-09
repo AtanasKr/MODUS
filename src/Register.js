@@ -46,8 +46,7 @@ function handleRegister(){
 
     set(ref(database, 'users/' + user.uid),{
         name: name,
-        email: email,
-        balance: 2000
+        email: email
     });
 
     alert('User created! You can now log in!');

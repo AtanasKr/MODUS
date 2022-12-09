@@ -53,6 +53,19 @@ h1{
     background-color: #e3ffcd;
 }
 
+.History-btn{
+    margin-top: 1em;
+    width: 13em;
+    height: 3em;
+    border-radius: 0.6em;
+    margin-right: 120em;
+    background-color: #00acf0;
+}
+
+.History-btn:hover{
+    background-color: #55bfe9;
+}
+
 .balance-holder{
     font-size: 1.5rem;
 }
@@ -75,7 +88,7 @@ h1{
 
 #all-products #product-holder2{
     text-align: right;
-    font-size: 1.2em;
+    font-size: 1em;
     width: 20em;
     padding-right: 20em;
 }
@@ -83,5 +96,19 @@ h1{
 #all-products #product-holder3{
     font-size: 1em;
     text-align: right;
+}
+
+.history-holder li{
+    display: inline-flex;
+    background-color: rgba(119, 194, 255, 0.616);
+    border: 1px solid black;
+    border-radius: 25px;
+    padding-top: 0;
+    margin-top: 1em;
+}
+
+#product-cancel{
+    cursor: pointer;
+    color: red;
 }
 

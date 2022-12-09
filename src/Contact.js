@@ -4,7 +4,7 @@ import './styles/Contact.css'
 function Contact(){
     return(
         <div>
-            <h1>Свържете се с нас.</h1>
+            <h1>Свържете се с нас</h1>
             <form  action="https://formsubmit.co/tedi.arnaudova99@gmail.com" method="POST">
             <div id='holder'>
             <input id='Name-input'  name="name" type="text" placeholder='Име...' required/>
