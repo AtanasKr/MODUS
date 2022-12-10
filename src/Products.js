@@ -48,56 +48,6 @@ function Products(){
             setSearchTerm(event.target.value);
           }} />
         </div>
-            {/* <h1 id='Chair-header'>Столове</h1>
-            <hr></hr>
-            <div className='img-container'>
-                <img className='container-item' src={chair1} onClick={()=>redirectToProd("Chair1")}/>
-                <img className='container-item' src={chair2} onClick={()=>redirectToProd("Chair2")}/>
-                <img className='container-item' src={chair3} onClick={()=>redirectToProd("Chair3")}/>
-                <img className='container-item' src={chair4} onClick={()=>redirectToProd("Chair4")}/>
-                <img className='container-item' src={chair5} onClick={()=>redirectToProd("Chair5")}/>
-                <img className='container-item' src={chair6} onClick={()=>redirectToProd("Chair6")}/>
-            </div>
-            <h1 id='Table-header'>Маси</h1>
-            <hr></hr>
-            <div className='img-container'>
-                <img className='container-item' src={table1} onClick={()=>redirectToProd("Table1")}/>
-                <img className='container-item' src={table2} onClick={()=>redirectToProd("Table2")}/>
-                <img className='container-item' src={table3} onClick={()=>redirectToProd("Table3")}/>
-                <img className='container-item' src={table4} onClick={()=>redirectToProd("Table4")}/>
-                <img className='container-item' src={table5} onClick={()=>redirectToProd("Table5")}/>
-                <img className='container-item' src={table6} onClick={()=>redirectToProd("Table6")}/>
-            </div>
-            <h1 id='Sofa-header'>Дивани</h1>
-            <hr></hr>
-            <div className='img-container'>
-                <img className='container-item' src={sofa1} onClick={()=>redirectToProd("Sofa1")}/>
-                <img className='container-item' src={sofa2} onClick={()=>redirectToProd("Sofa2")}/>
-                <img className='container-item' src={sofa3} onClick={()=>redirectToProd("Sofa3")}/>
-                <img className='container-item' src={sofa4} onClick={()=>redirectToProd("Sofa4")}/>
-                <img className='container-item' src={sofa5} onClick={()=>redirectToProd("Sofa5")}/>
-                <img className='container-item' src={sofa6} onClick={()=>redirectToProd("Sofa6")}/>
-            </div>
-            <h1 id='Sofa-header'>Бюра</h1>
-            <hr></hr>
-            <div className='img-container'>
-                <img className='container-item' src={desk1} onClick={()=>redirectToProd("Sofa1")}/>
-                <img className='container-item' src={desk2} onClick={()=>redirectToProd("Sofa2")}/>
-                <img className='container-item' src={desk3} onClick={()=>redirectToProd("Sofa3")}/>
-                <img className='container-item' src={desk4} onClick={()=>redirectToProd("Sofa4")}/>
-                <img className='container-item' src={desk5} onClick={()=>redirectToProd("Sofa5")}/>
-                <img className='container-item' src={desk6} onClick={()=>redirectToProd("Sofa6")}/>
-            </div>
-            <h1 id='Sofa-header'>Лампи</h1>
-            <hr></hr>
-            <div className='img-container'>
-                <img className='container-item' src={lamp1} onClick={()=>redirectToProd("Lamp1")}/>
-                <img className='container-item' src={lamp2} onClick={()=>redirectToProd("Lamp2")}/>
-                <img className='container-item' src={lamp3} onClick={()=>redirectToProd("Lamp3")}/>
-                <img className='container-item' src={lamp4} onClick={()=>redirectToProd("Lamp4")}/>
-                <img className='container-item' src={lamp5} onClick={()=>redirectToProd("Lamp5")}/>
-                <img className='container-item' src={lamp6} onClick={()=>redirectToProd("Lamp6")}/>
-            </div> */}
              {data 
               .filter((val) => {
                 if(searchTerm == ""){
@@ -108,11 +58,6 @@ function Products(){
               })
               .map((val) => {
                 return(
-                //   <div className="template" key={val.id}>
-                //       <img src={val.image} alt="" />
-                //       <h3>{val.title}</h3>
-                //       <p className="price">${val.price}</p>
-                //   </div> 
                 <div>
                     {val.title==="Столове"&&<div>
                         <h1 id='Sofa-header'>Столове</h1>
