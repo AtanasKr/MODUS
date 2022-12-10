@@ -121,7 +121,7 @@ function ProductView(){
                     <h2 className='prod-Inf'>{prodObj[localStorage.getItem("ProdName")].info}</h2>
                     <p>{prodObj[localStorage.getItem("ProdName")].text}</p>
                     <h3 className='prod-Spec'>Спецификации:</h3>
-                    <p>{prodObj[localStorage.getItem("ProdName")].specText}</p>
+                    <p className='prod-Text'>{prodObj[localStorage.getItem("ProdName")].specText}</p>
                     <p>Цена: {prodObj[localStorage.getItem("ProdName")].price} лв</p>
                     <button className="Send-btn" onClick={()=>sendProductToDatabase(prodObj[localStorage.getItem("ProdName")].info,
                     prodObj[localStorage.getItem("ProdName")].pic,
