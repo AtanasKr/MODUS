@@ -58,7 +58,7 @@ h1{
     width: 13em;
     height: 3em;
     border-radius: 0.6em;
-    margin-right: 120em;
+    margin-left: -124em;
     background-color: #00acf0;
 }
 
@@ -68,7 +68,13 @@ h1{
 
 .balance-holder{
     font-size: 1.5rem;
+    padding-left: 0.4em;
 }
+
+.cart-holder{
+    padding-left: -1em;
+}
+
 #all-products li{
     display: inline-block;
     width: 80%;

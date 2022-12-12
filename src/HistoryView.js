@@ -27,7 +27,7 @@ function addElementToList(date,price){
     let historyHolder ={};
     historyHolder.date = date;
     historyHolder.price = price;
-    debugger;
+    historyHolder.id = history.length;
     history.push(historyHolder);
 }
 auth.onAuthStateChanged((user) => {
@@ -39,6 +39,7 @@ auth.onAuthStateChanged((user) => {
       onValue(historyRef, (snapshot) => {
           const data = snapshot;
           data.forEach(function(childSnapshot){
+            if (typeof(childSnapshot.val().date) != "undefined")
             addElementToList(childSnapshot.val().date.slice(0,10),childSnapshot.val().price);
           });
       });
@@ -55,7 +56,7 @@ function HistoryView(){
             <h1>Вашата История на поръчки:</h1>
             <ul className='history-holder'>
             {history.map((data) => (
-            <li key={data.date}>
+            <li key={data.id}>
               <p id='product-holder'>Транзакцията на: {data.date}</p> 
               <p id='product-holder3'>На стойност: {data.price} лв</p>
             </li>

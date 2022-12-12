@@ -110,7 +110,7 @@ function Contact(){
         <div>
             {!logged&&<h1>Моля влезте за да ползвате страницата</h1>}
             {logged&&<h1 className='cart-holder'>Количката на {localStorage.getItem("Name")}</h1>}
-            {logged&&<h1 className='balance-holder'>Стойност на стока:{finalPrice}лв</h1>}
+            {logged&&<h1 className='balance-holder'>Стойност на стока: {finalPrice}лв</h1>}
             {logged&&<NavLink end to = "/HistoryView"><button className="History-btn">История на покупки</button></NavLink>}
             {logged&&<h1 id='Chair-header'>Продукти</h1>}
             {logged&&<hr></hr>}
