@@ -23,11 +23,12 @@ const auth = getAuth();
 let userUid;
 let history = [];
 
-function addElementToList(date,price){
+function addElementToList(date, price, address){
     let historyHolder ={};
     historyHolder.date = date;
     historyHolder.price = price;
     historyHolder.id = history.length;
+    historyHolder.address = address;
     history.push(historyHolder);
 }
 auth.onAuthStateChanged((user) => {
@@ -40,7 +41,7 @@ auth.onAuthStateChanged((user) => {
           const data = snapshot;
           data.forEach(function(childSnapshot){
             if (typeof(childSnapshot.val().date) != "undefined")
-            addElementToList(childSnapshot.val().date.slice(0,10),childSnapshot.val().price);
+            addElementToList(childSnapshot.val().date.slice(0,10), childSnapshot.val().price, childSnapshot.val().address);
           });
       });
       // ...
@@ -59,6 +60,7 @@ function HistoryView(){
             <li key={data.id}>
               <p id='product-holder'>Транзакцията на: {data.date}</p> 
               <p id='product-holder3'>На стойност: {data.price} лв</p>
+              <p id='product-holder3'>За адрес: {data.address}</p>
             </li>
             ))}
             </ul>

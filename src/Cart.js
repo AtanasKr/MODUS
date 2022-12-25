@@ -61,8 +61,12 @@ function deleteElement(id){
 }
 
 function finishTransaction(){
+  let addressHolder = document.getElementById('adress-holder').value;
+  console.log(addressHolder);
   if(finalPrice===0){
-    alert("Количката е празна!")
+    alert("Количката е празна!");
+  }else if(addressHolder===''){
+    alert("Моля въведете адрес!");
   }else{
     alert("Транзакцията е успешна!");
     const allProducts = ref(database,"productHolder/"+userUid+"-product");
@@ -70,7 +74,8 @@ function finishTransaction(){
     const newPostKey = push(historyRef).key;
     updateHistory['history/'+userUid +"-logged/"+newPostKey] = {
       date:new Date(),
-      price:finalPrice
+      price:finalPrice,
+      address:addressHolder
     };
     console.log(allProducts);
     remove(allProducts);
@@ -105,7 +110,7 @@ if(localStorage.getItem("Logged")==='false'){
     logged = true;
 }
 
-function Contact(){
+function Cart(){
     return(
         <div>
             {!logged&&<h1>Моля влезте за да ползвате страницата</h1>}
@@ -124,9 +129,10 @@ function Contact(){
             </li>
             ))}
             </ul>}
+            {logged&&<input className="address-holder" id='adress-holder' placeholder='Въведете адрес на поръчка...'></input>}
             {logged&&<button className="Send-btn" onClick={()=>finishTransaction()}>Приключи поръчка</button>}
         </div>
     )
 }
 
-export default Contact
+export default Cart

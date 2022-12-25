@@ -58,7 +58,7 @@ h1{
     width: 13em;
     height: 3em;
     border-radius: 0.6em;
-    margin-left: -124em;
+    margin-left: -76em;
     background-color: #00acf0;
 }
 
@@ -117,4 +117,15 @@ h1{
     cursor: pointer;
     color: red;
 }
+
+.address-holder{
+    width: 60%;
+    display: flex;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px solid rgb(158, 0, 0);
+    padding: 20px;
+    border-radius: 20px;
+}
+
 
