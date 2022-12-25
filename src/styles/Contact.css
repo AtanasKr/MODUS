@@ -75,43 +75,24 @@ h1{
     padding-left: -1em;
 }
 
-#all-products li{
-    display: inline-block;
-    width: 80%;
-    border: 1px solid black;
+#all-products{
+    display: flex;
+    flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
-    border-radius: 25px;
-    margin-bottom: 1em;
 }
 
-#all-products p{
-    font-size:0.8em;
-    display: table-cell;
-    text-align: left;
-    padding-right: 12em;
-}
-
-#all-products #product-holder2{
-    text-align: right;
-    font-size: 1em;
-    width: 20em;
-    padding-right: 20em;
-}
-
-#all-products #product-holder3{
-    font-size: 1em;
-    text-align: right;
-}
-
-.history-holder li{
-    display: inline-flex;
-    background-color: rgba(119, 194, 255, 0.616);
+#all-products li{
+    display: flex;
+    margin-top: 1em;
     border: 1px solid black;
     border-radius: 25px;
-    padding-top: 0;
-    margin-top: 1em;
 }
+
+#product-holder{
+    font-size: 0.8rem;
+}
+
 
 #product-cancel{
     cursor: pointer;

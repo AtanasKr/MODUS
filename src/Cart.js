@@ -123,8 +123,8 @@ function Cart(){
             {allProducts.map((data) => (
             <li key={data.id}>
               <p id='product-holder'>Ид на продукта:{data.id}</p> 
-              <p id='product-holder2'>Име: {data.name}</p>
-              <p id='product-holder3'>Цена: {data.price} лв</p>
+              <p id='product-holder'>Име: {data.name}</p>
+              <p id='product-holder'>Цена: {data.price} лв</p>
               <p id='product-cancel'onClick={()=>deleteElement(data.id)}>X</p>
             </li>
             ))}
