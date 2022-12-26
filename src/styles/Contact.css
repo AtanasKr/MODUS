@@ -90,7 +90,7 @@ h1{
 }
 
 #product-holder{
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 
@@ -108,5 +108,17 @@ h1{
     padding: 20px;
     border-radius: 20px;
 }
+
+
+.history-holder li{
+    display: flex;
+    border: 2px solid black;
+    margin-top: 1em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 25px;
+    background-color: #7ec9e7;
+}
+
 
 

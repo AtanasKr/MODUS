@@ -59,8 +59,8 @@ function HistoryView(){
             {history.map((data) => (
             <li key={data.id}>
               <p id='product-holder'>Транзакцията на: {data.date}</p> 
-              <p id='product-holder3'>На стойност: {data.price} лв</p>
-              <p id='product-holder3'>За адрес: {data.address}</p>
+              <p id='product-holder'>На стойност: {data.price} лв</p>
+              <p id='product-holder'>За адрес: {data.address}</p>
             </li>
             ))}
             </ul>
